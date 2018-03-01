@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <meta charset="utf-8">
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    Welcome @HttpContext.Current.User.Identity.Name
+</head>
+<body>
+    <h2>Test</h2>
+    <!--Header-->
+    <header></header>
+    <!--Section-->
+    <div class="card mb-3">
+        <section class="card-body"></section>
+    </div>
+    <script>
+        var header = document.querySelector('header');
+        var section = document.querySelector('section');
+
+        // call the variables from the APi URL
+        // requestURL variable stored for later use
+        var requestURL = 'https://api.coinmarketcap.com/v1/ticker/?convert=EUR&limit=5';
+        var request = new XMLHttpRequest();
+        // HTTP method 'GET' to simply retrieve the coin data needed
+        // 'requestURL' the URL to make the request to, which was stored above
+        request.open('GET', requestURL);
+        // set responseType to JSON so that xmlHttpRequest knows the server will be returning JSON & will need to be converted behind the scenes to a JS object
+        // send request using 'send' method'
+        request.responseType = 'json';
+        request.send();
+        // this section waits for response to return for server
+        // wrapping code in an event handler when the load event fires on the request obect 'onload'
+        //this is because the load event fires when the reponse has successfully returned
+        //this guarantees that 'request.response' will defo be available when we want to do something with it
+        request.onload = function () {
+            // storing the server reponse to our request in 'response' property in variable calles 'prices'
+            // this variable will now contain the JS object based on the JSON response
+            var response = request.response;
+            // passing the object to two function calls:
+            // the first will fill <header> with the appropriate data
+            populateHeader(response);
+            // will create an information card for each price we wish to examine
+            showPrices(response);
+        }
+        //Populate Header function
+        function populateHeader(jsonObj) {
+            var myH1 = document.createElement('h1');
+            myH1.textContent = jsonObj['squadName'];
+            header.appendChild(myH1);
+
+            var myPara = document.createElement('p');
+            myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
+            header.appendChild(myPara);
+        }
+        //Populate Section function with all prices
+        // call the jsonObj which was stored previously
+        function showPrices(jsonObj) {
+            var prices = jsonObj;
+            // creates html elements to display JSON object information for each in the array
+            for (var i = 0; i < prices.length; i++) {
+                var myArticle = document.createElement('article');
+                var myH2 = document.createElement('h2');
+                var Div1 = document.createElement('div');
+                var myPara1 = document.createElement('p');
+                var Div2 = document.createElement('div');
+                var myPara2 = document.createElement('p');
+                var Div3 = document.createElement('div');
+                var myPara3 = document.createElement('p');
+                var myPara4 = document.createElement('p');
+                var myPara5 = document.createElement('p');
+                // apply styles to newly created objects
+                myArticle.className = 'card mb-3'
+                myH2.className = 'card-header'
+                myPara1.parentElement = Div1;
+                myPara1.className = 'h4 mb-0 text-success'
+                myPara2.className = 'h4 mb-0 text-primary'
+                myPara3.className = 'small text-muted'
+                myPara4.className = 'small text-muted'
+                myPara5.className = 'small text-muted'
+                // populate html elements with selected API JSON obj content
+                myH2.textContent = prices[i].name;
+                myPara1.textContent = 'Price USD: $' + prices[i].price_usd;
+                //Div1.textContent = myPara1;
+                myPara2.textContent = 'Price EUR: €' + prices[i].price_eur;
+                myPara3.textContent = '1 hour: ' + prices[i].percent_change_1h + '%';
+                myPara4.textContent = '24 hour: ' + prices[i].percent_change_24h + '%';
+                myPara5.textContent = '7 Days: ' + prices[i].percent_change_7d + '%';
+                //append the saved items above to the html view to display
+                myArticle.appendChild(myH2);
+                myArticle.appendChild(myPara1);
+                myArticle.appendChild(Div1);
+                myArticle.appendChild(myPara2);
+                myArticle.appendChild(myPara3);
+                myArticle.appendChild(myPara4);
+                myArticle.appendChild(myPara5);
+                section.appendChild(myArticle);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("Logout", "Table", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            <a href="javascript:document.getElementById('logoutForm').submit()"> Logout </a>
+                        }
+                    }
+

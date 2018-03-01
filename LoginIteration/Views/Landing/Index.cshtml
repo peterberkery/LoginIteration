@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout =null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Landing Page - Start Bootstrap Theme</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="~/css/landing-page.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bitvestor</a>
+                <a class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Login","Table") + "'");" href="#">Sign In</a>
+                <a class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Registration","Table") + "'");" href="#">Register</a>
+            </div>
+    </nav>
+    <!-- Masthead -->
+    <header class="masthead text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">Group-sourced cryptocurrency investment decisions </h1>
+                    <h1 class="mb-5">Reduced risk, greater returns on investment</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <i class="icon-screen-desktop m-auto text-primary"></i>
+                        </div>
+                        <h3>Browser Ready</h3>
+                        <p class="lead mb-0">Access the investment club from any pc or laptop</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <i class="icon-credit-card m-auto text-primary"></i>
+                        </div>
+                        <h3>Subsription Variety</h3>
+                        <p class="lead mb-0">Choose a membership subscription rate that suits your budget</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <i class="icon-wallet m-auto text-primary"></i>
+                        </div>
+                        <h3>Easy Investments</h3>
+                        <p class="lead mb-0">One of the simplest crypto investment platforms available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Image/About Us Showcases -->
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/images/ChainLearn.jpg');"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Blockchain Focus</h2>
+                    <p class="lead mb-0">Group investments are based on a group of blockchain-ledger currencies such as Ethereum and Bitcoin. No doubt you have heard this term before, you can learn more about what this means on our blog </p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('/images/CryptoLearn.jpg');"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Beginner Friendly Investments</h2>
+                    <p class="lead mb-0">Our platform is an easy starting point for anyone who's new to cryptocurrencies and online investents. Risk is minimised by investing as a club than an individual</p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/images/TradingLearn.jpg');"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Wisdom of Crowds</h2>
+                    <p class="lead mb-0">All investment decisions are democratic and every user has a voice. We periodically host votes on which currency will be invested in. All subscriptions fees will then be used to buy the chosen currency on the groups behalf.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">What people are saying...</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="/images/testimonials-1.jpg" alt="">
+                        <h5>Margaret E.</h5>
+                        <p class="font-weight-light mb-0">"It's been a wild one, Thanks for the cheese"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="/images/testimonials-2.jpg" alt="">
+                        <h5>Fred S.</h5>
+                        <p class="font-weight-light mb-0">"Bitestor is amazing. I've got seven lamborghinis haha"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="/images/testimonials-3.jpg" alt="">
+                        <h5>Sarah	W.</h5>
+                        <p class="font-weight-light mb-0">"Steak and Champagne every night babaaay!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item">
+                                <a href="#">About</a>
+                            </li>
+                            <li class="list-inline-item">&sdot;</li>
+                            <li class="list-inline-item">
+                                <a href="#">Contact</a>
+                            </li>
+                            <li class="list-inline-item">&sdot;</li>
+                            <li class="list-inline-item">
+                                <a href="#">Terms of Use</a>
+                            </li>
+                            <li class="list-inline-item">&sdot;</li>
+                            <li class="list-inline-item">
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                        </ul>
+                        @*<p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
